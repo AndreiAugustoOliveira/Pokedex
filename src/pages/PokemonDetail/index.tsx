@@ -125,9 +125,12 @@ export default function PokemonDetailScreen() {
   }
 
 
-  useEffect(() => {
-    const controller = new AbortController();
+    useEffect(() => {
 
+    console.log('Abrindo pokémon', id);
+
+    const controller = new AbortController();
+    
     async function loadPokemon() {
       try {
         setIsLoading(true);

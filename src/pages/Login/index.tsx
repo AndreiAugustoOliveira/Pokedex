@@ -15,6 +15,11 @@ import { validateLogin } from '../../services/auth';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
+   <TextInput
+     value={email}
+    onChangeText={setEmail}
+    />
+
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -54,6 +59,9 @@ export default function LoginScreen() {
       <View style={styles.boxTop}>
         <Image source={Logo} style={styles.logo} />
         <Text style={styles.textTop}>Pokédex</Text>
+        <Text style={{ color: theme.colors.textSecondary }}>
+         Turma DS – ETE · Andrei
+        </Text>
       </View>
       
       <View style={styles.boxMid}>
@@ -68,6 +76,11 @@ export default function LoginScreen() {
           style={styles.textInput}
         />
       </View>
+
+      <Text>
+      Você digitou: {email} ({email.length} letras)
+      </Text>
+
       <Text style={styles.titleInput}>Senha</Text>      
       <View style={styles.boxInput}>
       <TextInput
@@ -88,7 +101,7 @@ export default function LoginScreen() {
           { isLoading ? 
           <ActivityIndicator color={theme.colors.text}/> :
           <Text style={styles.buttonEntrarText}>Entrar</Text>
-          }          
+          }         
         </TouchableOpacity>
         {errorMessage ? 
           <Text style={{color: 'red', marginTop: 8}}>{errorMessage}</Text> 
